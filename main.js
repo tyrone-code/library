@@ -1,34 +1,63 @@
-const bookArrObjects = [];
+let bookArrObjects = [];
 
 const container = document.querySelector(".container");
+
+let addNewBook = document.getElementById("new-book");
+
+// let initiateUserPrompts = function (callback) {
+
+//   console.log("clicked!");
+// };
+
+let getUserInput = function (callback) {
+  let titleBook = prompt("title");
+  let authorBook = prompt("author");
+  let pagesBook = prompt("pages");
+  callback(titleBook, authorBook, pagesBook);
+};
+// addBookToLibrary(titleBook, authorBook, pagesBook);
+function addBookToLibrary(title, author, pages) {
+  let p = new Book(title, author, pages); // here we create instance
+  bookArrObjects.push(p);
+}
+
+// addBookToLibrary(titleBook, authorBook, pagesBook);
+
+addNewBook.addEventListener("click", display);
 
 function Book(title, author, pages) {
   this.title = title;
   this.author = author;
   this.pages = pages;
 }
-function addBookToLibrary(title, author, pages) {
-  let p = new Book(title, author, pages); // here we create instance
-  bookArrObjects.push(p);
-}
+
+// addBookToLibrary(titleBook, authorBook, pagesBook); IS THE CALLBACK
+
+// addBookToLibrary(titleBook, authorBook, pagesBook);
+// addBookToLibrary("1984", "George Orwell", 328);
+// addBookToLibrary("Art of war", "Sun tzu", 260);
+
 // Creating objects using the constructor function
+//e.g parameters of addbookToLibrary //titler-user          //author-user    //pages-user
 
-addBookToLibrary("Alice in wonderland", "Lewis carroll", 352);
-addBookToLibrary("1984", "George Orwell", 328);
-addBookToLibrary("Art of war", "Sun tzu", 260);
+function display() {
+  getUserInput(addBookToLibrary);
+  bookArrObjects.forEach((item) => {
+    const box = document.createElement("div");
+    box.className = "card";
 
-bookArrObjects.forEach((item) => {
-  const box = document.createElement("div");
-  box.className = "card";
+    const list = document.createElement("p");
 
-  const list = document.createElement("p");
+    list.innerText = `
+     Title: ${item.title}
+    Author:  ${item.author}
+     Pages: ${item.pages}
+    `;
+    box.appendChild(list);
 
-  list.innerText = `
-   Title: ${item.title}
-  Author:  ${item.author}
-   Pages: ${item.pages}
-  `;
-  box.appendChild(list);
-
-  container.appendChild(box);
-});
+    container.appendChild(box);
+    // empty the array
+    bookArrObjects = [];
+    console.log(bookArrObjects);
+  });
+}
