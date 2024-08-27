@@ -44,20 +44,25 @@ function display() {
   getUserInput(addBookToLibrary);
   bookArrObjects.forEach((item) => {
     const box = document.createElement("div");
+    const boxForImg = document.createElement("div");
+
+    const img = document.createElement("img");
     box.className = "card";
-
+    img.classList.add("delete", "bounce");
+    img.setAttribute("src", "/images/delete.svg");
     const list = document.createElement("p");
-
     list.innerText = `
      Title: ${item.title}
+
     Author:  ${item.author}
+    
      Pages: ${item.pages}
     `;
     box.appendChild(list);
-
+    boxForImg.appendChild(img);
+    box.appendChild(boxForImg);
     container.appendChild(box);
     // empty the array
     bookArrObjects = [];
-    console.log(bookArrObjects);
   });
 }

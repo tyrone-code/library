@@ -6,7 +6,6 @@
 
 body {
   margin: 0;
-  min-height: 100vh;
   font-family: "Open Sans";
 }
 .container {
@@ -16,19 +15,47 @@ body {
 }
 .card {
   font-family: "Heebo";
-  height: 12em;
-  width: 12em;
-  font-size: 1.5em;
-  color: rgb(0, 0, 0);
-  border-radius: 1em;
+  height: 19rem;
+  width: 19rem;
+  border-radius: 1rem;
   margin: 0.5rem;
-  padding: 1rem;
+  padding: 0.5rem;
   box-shadow: 0 0 5em -1em black;
-  border: 10px solid #000000;
-  text-decoration: none;
+  border: 5px solid #000000;
+  overflow: auto;
 }
 
-.container p {
-  font-size: 20px;
-  font-weight: 700;
+.card p {
+  font-size: 16px;
+  font-weight: 100;
+}
+
+.delete {
+  width: 2.4rem;
+  filter: invert(19%) sepia(92%) saturate(6675%) hue-rotate(8deg)
+    brightness(97%) contrast(130%);
+  cursor: pointer;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  transform-origin: bottom;
+  position: relative;
+  left: 12rem;
+  top: 2.5rem;
+}
+
+.bounce:hover {
+  animation-name: bounce;
+  animation-timing-function: ease;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
