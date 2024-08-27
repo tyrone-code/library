@@ -1,51 +1,42 @@
+// Array to hold book objects
 let bookArrObjects = [];
 
+// Get references to DOM elements
 const container = document.querySelector(".container");
-
 let addNewBook = document.getElementById("new-book");
+let deleteCard = null;
 
-// let initiateUserPrompts = function (callback) {
-
-//   console.log("clicked!");
-// };
-
-let getUserInput = function (callback) {
-  let titleBook = prompt("title");
-  let authorBook = prompt("author");
-  let pagesBook = prompt("pages");
-  callback(titleBook, authorBook, pagesBook);
-};
-// addBookToLibrary(titleBook, authorBook, pagesBook);
-function addBookToLibrary(title, author, pages) {
-  let p = new Book(title, author, pages); // here we create instance
-  bookArrObjects.push(p);
-}
-
-// addBookToLibrary(titleBook, authorBook, pagesBook);
-
-addNewBook.addEventListener("click", display);
-
+// Constructor function to create book objects
 function Book(title, author, pages) {
   this.title = title;
   this.author = author;
   this.pages = pages;
 }
 
-// addBookToLibrary(titleBook, authorBook, pagesBook); IS THE CALLBACK
+// Function to get user input and call the callback function
+let getUserInput = function (callback) {
+  let titleBook = prompt("title");
+  let authorBook = prompt("author");
+  let pagesBook = prompt("pages");
+  callback(titleBook, authorBook, pagesBook);
+};
 
-// addBookToLibrary(titleBook, authorBook, pagesBook);
-// addBookToLibrary("1984", "George Orwell", 328);
-// addBookToLibrary("Art of war", "Sun tzu", 260);
+// Function to add a book to the library
+function addBookToLibrary(title, author, pages) {
+  let p = new Book(title, author, pages); // Create a new Book instance
+  bookArrObjects.push(p);
+}
 
-// Creating objects using the constructor function
-//e.g parameters of addbookToLibrary //titler-user          //author-user    //pages-user
-
+// Function to display books and clear the array
 function display() {
   getUserInput(addBookToLibrary);
+
+ // Get user input and add to library
+  container.innerHTML = ''; // Clear existing content before adding new
   bookArrObjects.forEach((item) => {
     const box = document.createElement("div");
     const boxForImg = document.createElement("div");
-
+    
     const img = document.createElement("img");
     box.className = "card";
     img.classList.add("delete", "bounce");
@@ -53,16 +44,31 @@ function display() {
     const list = document.createElement("p");
     list.innerText = `
      Title: ${item.title}
-
-    Author:  ${item.author}
-    
+     Author:  ${item.author}
      Pages: ${item.pages}
     `;
     box.appendChild(list);
     boxForImg.appendChild(img);
     box.appendChild(boxForImg);
     container.appendChild(box);
-    // empty the array
-    bookArrObjects = [];
+    deleteCard = document.querySelectorAll(".delete");
+    deleteCard.forEach(delClassBtn => {
+    delClassBtn.addEventListener('click', function() {
+      var li = this.parentNode
+      li.remove()
+      })
+    })
   });
+  
+  // Optionally, you can empty the array if you want to start fresh
+  // bookArrObjects = [];
 }
+
+// Function to handle book removal (currently a placeholder)
+function removeCard() {
+  console.log("hello World!");
+}
+
+// Event listeners for button clicks
+addNewBook.addEventListener("click", display);
+
