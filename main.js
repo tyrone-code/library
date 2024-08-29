@@ -1,9 +1,9 @@
 // Array to hold book objects
 let bookArrObjects = [];
+var modal = document.getElementById("myModal");
 
 // Get references to DOM elements
 let container = document.querySelector(".container");
-let body = document.getElementsByTagName("BODY")[0];
 
 let addNewBook = document.getElementById("new-book");
 let deleteCard = null;
@@ -43,11 +43,9 @@ function display() {
     img.setAttribute("src", "/images/delete.svg");
     const list = document.createElement("p");
     list.innerText = `
-     Title: ${item.title}
-
-     Author:  ${item.author}
-
-     Pages: ${item.pages}
+     Title - ${item.title}
+     Author -  ${item.author}
+     Pages - ${item.pages}
     `;
     box.appendChild(list);
     box.appendChild(img)
