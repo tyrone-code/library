@@ -35,18 +35,16 @@ function addBookToLibrary(title, author, pages) {
 }
 
 
-// Function to display books and clear the array
 function displayModal() {
   dialog.showModal();
 
- // Get user input and add to library
+
   
 
 }
 
 function displayCard(){
-  getUserInput(addBookToLibrary);
-
+    getUserInput(addBookToLibrary);
   bookArrObjects.forEach((item) => {
     const box = document.createElement("div");
     
@@ -65,7 +63,6 @@ function displayCard(){
     container.appendChild(box);
     deleteCard = document.querySelectorAll(".delete");
     bookArrObjects = [];
- 
   });
 
   deleteCard.forEach(item => {
@@ -76,6 +73,7 @@ function displayCard(){
       
       })
     })
+    dialog.close("book-details")
 }
 
 
@@ -90,3 +88,5 @@ confirm.addEventListener("click", displayCard)
 cancelButton.addEventListener("click", () => {
   dialog.close("book-details");
 });
+
+
