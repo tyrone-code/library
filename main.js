@@ -2,7 +2,9 @@
 let bookArrObjects = [];
 
 // Get references to DOM elements
-const container = document.querySelector(".container");
+let container = document.querySelector(".container");
+let body = document.getElementsByTagName("BODY")[0];
+
 let addNewBook = document.getElementById("new-book");
 let deleteCard = null;
 
@@ -32,10 +34,8 @@ function display() {
   getUserInput(addBookToLibrary);
 
  // Get user input and add to library
-  container.innerHTML = ''; // Clear existing content before adding new
   bookArrObjects.forEach((item) => {
     const box = document.createElement("div");
-    const boxForImg = document.createElement("div");
     
     const img = document.createElement("img");
     box.className = "card";
@@ -44,25 +44,31 @@ function display() {
     const list = document.createElement("p");
     list.innerText = `
      Title: ${item.title}
+
      Author:  ${item.author}
+
      Pages: ${item.pages}
     `;
     box.appendChild(list);
-    boxForImg.appendChild(img);
-    box.appendChild(boxForImg);
+    box.appendChild(img)
     container.appendChild(box);
     deleteCard = document.querySelectorAll(".delete");
-    deleteCard.forEach(delClassBtn => {
-    delClassBtn.addEventListener('click', function() {
-      var li = this.parentNode
-      li.remove()
+    bookArrObjects = [];
+ 
+  });
+
+  deleteCard.forEach(item => {
+    console.log(item)
+    item.addEventListener('click', function() {
+      let redTrashCanParent = this.parentNode // which will  be card
+      redTrashCanParent.remove()
+      
       })
     })
-  });
-  
   // Optionally, you can empty the array if you want to start fresh
   // bookArrObjects = [];
 }
+console.log(bookArrObjects)
 
 // Function to handle book removal (currently a placeholder)
 function removeCard() {
