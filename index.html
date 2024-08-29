@@ -16,6 +16,34 @@
 
     </div>
     <button id="new-book">+</button>
+    <!-- pop-up dialog box, containing a form -->
+    <dialog id="book-details">
+        <form method="dialog">
+            <p>
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title">
+            </p>
+
+            <p>
+                <label for="author">Author</label>
+                <input type="text" id="author" name="author">
+            </p>
+            <p>
+                <label for="pages">Pages</label>
+                <input type="number" id="pages" name="pages">
+            </p>
+            <!-- <p>
+
+                <label for="readBook?">Have you read it?</label>
+                <input type="checkbox" id="readBook?" name="readBook?">
+            </p> -->
+
+            <div>
+                <button id="cancel" type="reset">Cancel</button>
+                <button id="confirm" type="submit">Confirm</button>
+            </div>
+        </form>
+    </dialog>
 
 </body>
 

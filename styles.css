@@ -21,7 +21,7 @@ body {
   height: 19rem;
   width: 19rem;
   border-radius: 1rem;
-
+margin:0.5rem;
   box-shadow: 0 0 5em -1em black;
   border: 3px solid #000000;
   overflow: auto;
@@ -80,3 +80,5 @@ body {
   background-color: rgb(248, 248, 248);
 
 }
+
+

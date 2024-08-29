@@ -1,12 +1,13 @@
 // Array to hold book objects
 let bookArrObjects = [];
-var modal = document.getElementById("myModal");
 
 // Get references to DOM elements
 let container = document.querySelector(".container");
-
 let addNewBook = document.getElementById("new-book");
 let deleteCard = null;
+let confirm = document.getElementById("confirm");
+
+
 
 // Constructor function to create book objects
 function Book(title, author, pages) {
@@ -17,9 +18,9 @@ function Book(title, author, pages) {
 
 // Function to get user input and call the callback function
 let getUserInput = function (callback) {
-  let titleBook = prompt("title");
-  let authorBook = prompt("author");
-  let pagesBook = prompt("pages");
+  let titleBook = document.getElementById("title").value
+  let authorBook = document.getElementById("title").value
+  let pagesBook = document.getElementById("title").value
   callback(titleBook, authorBook, pagesBook);
 };
 
@@ -31,7 +32,8 @@ function addBookToLibrary(title, author, pages) {
 
 // Function to display books and clear the array
 function display() {
-  getUserInput(addBookToLibrary);
+  dialog.showModal();
+  // getUserInput(addBookToLibrary);
 
  // Get user input and add to library
   bookArrObjects.forEach((item) => {
@@ -66,13 +68,19 @@ function display() {
   // Optionally, you can empty the array if you want to start fresh
   // bookArrObjects = [];
 }
-console.log(bookArrObjects)
 
-// Function to handle book removal (currently a placeholder)
-function removeCard() {
-  console.log("hello World!");
-}
+
+
 
 // Event listeners for button clicks
 addNewBook.addEventListener("click", display);
 
+// ------------------------------------------------------------------------//
+const cancelButton = document.getElementById("cancel");
+const dialog = document.getElementById("book-details");
+dialog.returnValue = "book-details";
+
+// Form cancel button closes the dialog box
+cancelButton.addEventListener("click", () => {
+  dialog.close("book-details");
+});
