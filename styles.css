@@ -82,3 +82,27 @@ margin:0.5rem;
 }
 
 
+#yes {
+  width:1.8rem;
+  filter: brightness(0) saturate(100%) invert(59%) sepia(99%) saturate(2860%) hue-rotate(71deg) brightness(134%) contrast(106%);
+  display:none; 
+  position: relative;
+  left:12.5rem;
+  top:-7.4rem;
+}
+
+#no {
+  width:1.8rem;
+  filter: brightness(0) saturate(100%) invert(14%) sepia(86%) saturate(6019%) hue-rotate(357deg) brightness(95%) contrast(115%);
+  display: none;
+  position: relative;
+  left:12.5rem;
+  top:-7.4rem;
+}
+
+.read {
+ font-size: 1px;
+ position: relative;
+ top:-1.5rem;
+ left:-1rem;
+}

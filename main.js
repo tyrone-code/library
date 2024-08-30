@@ -6,6 +6,9 @@ let container = document.querySelector(".container");
 let addNewBook = document.getElementById("new-book");
 let deleteCard = null;
 let confirm = document.getElementById("confirm");
+let checkBox = document.getElementById("readBook?")
+
+
 
 const cancelButton = document.getElementById("cancel");
 const dialog = document.getElementById("book-details");
@@ -38,7 +41,6 @@ function addBookToLibrary(title, author, pages) {
 function displayModal() {
   dialog.showModal();
 
-
   
 
 }
@@ -47,23 +49,46 @@ function displayCard(){
     getUserInput(addBookToLibrary);
   bookArrObjects.forEach((item) => {
     const box = document.createElement("div");
-    
+    const yes = document.createElement("img");
+    yes.id = "yes"
+    yes.setAttribute("src", "/images/yes.svg");
+    const no = document.createElement("img");
+    no.id = "no"
+    no.setAttribute("src", "/images/no.svg");
+ 
+ 
     const img = document.createElement("img");
     box.className = "card";
     img.classList.add("delete", "bounce");
     img.setAttribute("src", "/images/delete.svg");
     const list = document.createElement("p");
+    const read = document.createElement("p");
+    read.innerText = "Read Status"
+     read.className = "read"
     list.innerText = `
      Title - ${item.title}
      Author -  ${item.author}
      Pages - ${item.pages}
     `;
     box.appendChild(list);
+    box.appendChild(read);
     box.appendChild(img)
+    // box.appendChild(yes)
+    if (checkBox.checked === true){
+      box.appendChild(yes)
+      yes.style.display = "block"
+    }else {
+      box.appendChild(no)
+      no.style.display = "block"
+
+    }
+
     container.appendChild(box);
     deleteCard = document.querySelectorAll(".delete");
     bookArrObjects = [];
   });
+
+  
 
   deleteCard.forEach(item => {
     console.log(item)
@@ -90,3 +115,27 @@ cancelButton.addEventListener("click", () => {
 });
 
 
+
+
+// function change() {
+//   var img1 = "http://placehold.it/350x150",
+//       img2 = "http://placehold.it/200x200";
+//   var imgElement = document.getElementById('test');
+  
+//   imgElement.src = (imgElement.src === img1)? img2 : img1;
+// }
+
+// function Person(first, last, age, eye) {
+//   this.firstName = first;
+//   this.lastName = last;
+//   this.age = age;
+//   this.eyeColor = eye;
+// }
+
+// Book.prototype.change = function() {
+//   return this.firstName + " " + this.lastName
+// };
+
+// const myFather = new Person("John", "Doe", 50, "blue");
+// document.getElementById("demo").innerHTML =
+// "My father is " + myFather.name(); 
