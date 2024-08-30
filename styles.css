@@ -89,6 +89,8 @@ margin:0.5rem;
   position: relative;
   left:12.5rem;
   top:-7.4rem;
+  cursor: pointer;
+
 }
 
 #no {
@@ -98,6 +100,8 @@ margin:0.5rem;
   position: relative;
   left:12.5rem;
   top:-7.4rem;
+  cursor: pointer;
+
 }
 
 .read {
