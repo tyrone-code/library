@@ -44,14 +44,14 @@ function displayCard() {
     const box = document.createElement("div");
     const yes = document.createElement("img");
     yes.id = "yes";
-    yes.setAttribute("src", "/images/yes.svg");
+    yes.setAttribute("src", "../images/yes.svg");
     let no = document.createElement("img");
     no.id = "no";
-    no.setAttribute("src", "/images/no.svg");
+    no.setAttribute("src", "../images/no.svg");
     const img = document.createElement("img");
     box.className = "card";
     img.classList.add("delete", "bounce");
-    img.setAttribute("src", "/images/delete.svg");
+    img.setAttribute("src", "../images/delete.svg");
     const list = document.createElement("p");
     const read = document.createElement("p");
     read.innerText = "Read Status";
