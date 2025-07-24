@@ -44,7 +44,7 @@ function displayCard() {
     const box = document.createElement("div");
     const yes = document.createElement("img");
     yes.id = "yes";
-    yes.setAttribute("src", "../images/yes.svg");
+    yes.setAttribute("src", "./images/yes.svg");
     let no = document.createElement("img");
     no.id = "no";
     no.setAttribute("src", "./images/no.svg");
